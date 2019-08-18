@@ -1,0 +1,30 @@
+reader:
+p(sem0)
+p(sem1)
+rcount++;
+if(rcount ==1) p(sem2)
+v(sem1)
+v(sem0)
+
+critical section
+
+p(sem1)
+rcount--
+if(rcount==0) v(sem2)
+v(sem1)
+
+
+writer:
+p(sem3)
+wcount++
+if(wcount ==1) p(sem0)
+v(sem3)
+
+p(sem2)
+critical section
+v(sem2)
+
+p(sem3)
+wcount--
+if(wcount==0) v(sem0)
+v(sem3)
